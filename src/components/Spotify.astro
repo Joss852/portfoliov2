@@ -1,0 +1,38 @@
+---
+import Card from './Card.astro'
+
+const socialIcon = {
+  src: '/assets/logos/spotify-logo.svg',
+  alt: 'GitHub Logo',
+}
+---
+
+<Card
+  class="card-md flex flex-col bg-song-image bg-[url('/assets/images/song-cover.jpeg')] bg-no-repeat bg-cover"
+  socialIcon={socialIcon}>
+  <h3 class="text-3xl text-white">Currently listening</h3>
+  <h4 class="text-xl font-medium text-white">PRIDE.</h4>
+  <p class="text-base font-light text-white">Kendrick Lamar</p>
+  <a
+    href="https://open.spotify.com/track/6IZvVAP7VPPnsGX6bvgkqg"
+    target="_blank"
+    class="absolute right-4">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      class="w-14 h-14">
+      <path
+        fill="#1fdf64"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+      <path
+        fill="#000000"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M15.91 11.672a.375.375 0 010 .656l-5.603 3.113a.375.375 0 01-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112z"
+      ></path>
+    </svg>
+  </a>
+</Card>

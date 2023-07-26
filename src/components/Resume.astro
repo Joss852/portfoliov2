@@ -1,0 +1,22 @@
+---
+import Card from '@components/Card.astro'
+---
+
+<Card class="card-md bg-card-ligth dark:bg-card-dark text-dark dark:text-white" direction="left">
+  <h1 class="text-4xl font-bold mb-2">
+    Hi, I'm <span class="text-gradient">Josseph Morales</span>
+  </h1>
+  <p class="max-w-[312px]">
+    Junior Full Stack Developer with degree in Computer Systems Engineering and 1+ year experience
+    at web development.
+  </p>
+</Card>
+<style>
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+</style>
