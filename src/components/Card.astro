@@ -9,7 +9,7 @@ const { class: className, direction, externalLink, socialIcon } = Astro.props
 ---
 
 <div
-  class=`${className} relative rounded-3xl p-6 hover:shadow-md hover:transition-shadow shadow-gray-600 dark:shadow-gray-600`>
+  class=`${className} relative rounded-3xl p-6 transition duration-150 ease-in-out hover:scale-105`>
   {
     socialIcon && (
       <div class="absolute w-6 h-6">
