@@ -3,13 +3,13 @@ import Card from './Card.astro'
 ---
 
 <Card
-  class="card-sm flex flex-col gap-2 bg-gradient-to-br from-[#0075FF17] to-[#00C2FF] via-[#0088FFB8] text-white">
-  <h1 class="text-4xl font-bold">29°C</h1>
-  <span class="text-base font-semibold flex items-center gap-1"
+  class="md:order-4 lg:order-4 card-sm flex flex-col gap-2 bg-gradient-to-br from-[#0075FF17] to-[#00C2FF] via-[#0088FFB8] text-white">
+  <h1 class="text-lg sm:text-4xl font-bold">29°C</h1>
+  <span class="text-xs sm:text-base font-semibold flex items-center gap-1"
     >Sunny
     <svg
-      width="21"
-      height="21"
+      width="20"
+      height="20"
       viewBox="0 0 21 21"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -28,6 +28,6 @@ import Card from './Card.astro'
       </defs>
     </svg>
   </span>
-  <span class="text-base font-normal">2:32 PM</span>
-  <span class="text-base font-normal">Querétaro, MX</span>
+  <span class="text-xs sm:text-base font-normal">2:32 PM</span>
+  <span class="text-xs sm:text-base font-normal">Querétaro, MX</span>
 </Card>

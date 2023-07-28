@@ -8,7 +8,7 @@ module.exports = {
         dark: '#222436',
         'card-dark': '#2f334d',
         light: '#d8d8d8',
-        'card-ligth': '#ffffff',
+        'card-light': '#ffffff',
       },
     },
   },

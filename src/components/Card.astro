@@ -9,24 +9,24 @@ const { class: className, direction, externalLink, socialIcon } = Astro.props
 ---
 
 <div
-  class=`${className} relative rounded-3xl p-6 hover:shadow-md hover:transition-shadow shadow-gray-600 dark:shadow-gray-600`>
+  class=`${className} relative rounded-3xl p-4 md:p-6 transition duration-150 ease-in-out active:scale-95 lg:hover:scale-105`>
   {
     socialIcon && (
-      <div class="absolute w-6 h-6">
+      <div class="absolute w-5 h-5 sm:w-6 sm:h-6">
         <img src={socialIcon.src} alt={socialIcon.alt} />
       </div>
     )
   }
   {
     externalLink && (
-      <div class="absolute right-6 w-6 h-6">
+      <div class="absolute right-6 w-5 h-5 sm:w-6 sm:h-6">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
           stroke-width="1.5"
           stroke="currentColor"
-          class="w-6 h-6">
+          class="w-5 h-5 sm:w-6 sm:h-6">
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -42,20 +42,49 @@ const { class: className, direction, externalLink, socialIcon } = Astro.props
   </div>
 </div>
 <style>
+  .card-sm {
+    width: auto;
+    height: var(--dinamic-height-mobile);
+    max-width: 361.5px;
+    max-height: 361.5px;
+
+    @media (min-width: 768px) {
+      min-width: 234.67px;
+      height: var(--dinamic-height-tablet);
+    }
+
+    @media (min-width: 1024px) {
+      width: auto;
+      height: var(--dinamic-height-desktop);
+      max-width: 297px;
+      max-height: 297px;
+    }
+  }
+
   .card-md {
     grid-column: span 2 / span 2;
-    width: 616px;
-    height: 300px;
+    width: auto;
+    height: var(--dinamic-height-mobile);
+    max-width: 735px;
+    max-height: 361.5px;
+
+    @media (min-width: 768px) {
+      width: auto;
+      height: auto;
+    }
   }
 
   .card-md-vertical {
     grid-row: span 2 / span 2;
-    width: 300px;
-    height: 616px;
-  }
+    width: auto;
+    height: 100%;
 
-  .card-sm {
-    width: 300px;
-    height: 300px;
+    @media (min-width: 768px) {
+      grid-row: span 1 / span 1;
+    }
+
+    @media (min-width: 1024px) {
+      grid-row: span 2 / span 2;
+    }
   }
 </style>
