@@ -1,5 +1,9 @@
 {
   "extends": ["plugin:astro/recommended"],
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": "latest"
+  },
   "overrides": [
     {
       "files": ["*.astro"],
@@ -10,7 +14,6 @@
       }
     }
   ],
-
   "rules": {
     "no-trailing-spaces": "warn",
     "no-multiple-empty-lines": "warn"
