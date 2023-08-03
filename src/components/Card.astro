@@ -1,22 +1,29 @@
 ---
 interface Card {
   direction: string
+  title: string
   externalLink?: boolean
   socialIcon?: object
 }
 
-const { class: className, direction, externalLink, socialIcon } = Astro.props
+const { class: className, direction, title, externalLink, socialIcon } = Astro.props
 ---
 
 <div
   class=`${className} relative rounded-3xl p-4 md:p-6 transition duration-150 ease-in-out active:scale-95 lg:hover:scale-105`>
   {
     socialIcon && (
-      <div class="absolute w-5 h-5 sm:w-6 sm:h-6">
-        <img src={socialIcon.src} alt={socialIcon.alt} />
+      <div class="absolute flex items-center gap-2">
+        <img src={socialIcon.src} alt={socialIcon.alt} class="w-5 h-5" />
+        {title && (
+          <h3 class="font-bold text-xl sm:text-xl capitalize">
+            {title === 'dnd' ? 'Do Not Disturb' : title}
+          </h3>
+        )}
       </div>
     )
   }
+
   {
     externalLink && (
       <div class="absolute right-6 w-5 h-5 sm:w-6 sm:h-6">
