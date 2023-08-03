@@ -1,7 +1,7 @@
 ---
 import Card from './Card.astro'
-import { WEATHER_API_KEY, WEATHER_API_URL } from '../config.js'
-import { isAfter, add } from 'date-fns'
+import { WEATHER_API_KEY, WEATHER_API_URL } from 'src/config.js'
+import moment from 'moment/moment'
 
 const response = await fetch(
   `${WEATHER_API_URL}?lat=20.59&lon=-100.39&appid=${WEATHER_API_KEY}&units=metric`
@@ -10,10 +10,10 @@ const data = await response.json()
 
 let cardGradientClasses = 'from-[#0075FF17] to-[#00C2FF] via-[#0088FFB8]'
 
-const isDay = isAfter(new Date(), new Date(data.sys.sunrise * 1000))
-const isNight = isAfter(new Date(), add(new Date(data.sys.sunset * 1000), { hours: 1 }))
+const isDay = moment(new Date()).isAfter(moment(new Date(data.sys.sunrise * 1000)).add(1, 'h'))
+const isNight = moment(new Date()).isAfter(new Date(data.sys.sunrise * 1000))
 
-if (isDay) cardGradientClasses = 'from-[#FFB800] to-[#FFD600] via-[#FFC200]'
+if (isDay) cardGradientClasses = 'from-[#0075FF17] to-[#00C2FF] via-[#0088FFB8]'
 if (isNight) cardGradientClasses = 'from-[#01162E] to-[#01426D] via-[#013155]'
 ---
 
@@ -30,17 +30,17 @@ if (isNight) cardGradientClasses = 'from-[#01162E] to-[#01426D] via-[#013155]'
   </div>
   <span class="text-xs sm:text-base font-normal" id="current-time"></span>
   <span class="text-xs sm:text-base font-normal">{`${data.name}, ${data.sys.country}`}</span>
-  <script>
-    const time = document.getElementById('current-time')
-    const DateTimeFormatter = new Intl.DateTimeFormat('en-US', {
-      timeZone: 'America/Mexico_City',
-      hour: '2-digit',
-      minute: '2-digit',
-      hour12: true,
-    })
-
-    setInterval(() => {
-      time.textContent = DateTimeFormatter.format(new Date())
-    }, 1000)
-  </script>
 </Card>
+<script>
+  const time = document.getElementById('current-time')
+  const DateTimeFormatter = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/Mexico_City',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true,
+  })
+
+  setInterval(() => {
+    time.textContent = DateTimeFormatter.format(new Date())
+  }, 1000)
+</script>
